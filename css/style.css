@@ -1,3 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
 body {
-  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  border: 3px double #242a49;
+}
+
+.keyboard__line {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.key {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background: #ffffff;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.key:before,
+.key:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transition: 0.2s;
+}
+
+.key:nth-child(2n+1):before,
+.key:nth-child(2n+1):after {
+  background: linear-gradient(45deg, #00ccff, #0e1538, #d400d4)
+}
+
+.key:nth-child(2n):before,
+.key:nth-child(2n):after {
+  background: linear-gradient(45deg, #f0075b, #0e1538, #1aff22);
+}
+
+.key:active .key__main {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.key:hover:before {
+  inset: -1px;
+}
+
+.key:hover:after {
+  inset: -1px;
+  filter: blur(15px);
+}
+
+.key__main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background: #000;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #dddddd;
+  border: 1px solid #242a49;
+}
+
+.key__little {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  /*width: 50%;
+  height: 50%;*/
+  color: #aaaaaa;
+  font-size: 12px;
+  z-index: 5;
+}
+
+/* custom keys */
+
+.key_alt {
+  width: 70px;
+}
+
+.key_arrow .key__main {
+  background-image: url("../images/arrow-left.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-color: rgba(26, 255, 34, 0.3);
+}
+
+.key_arrow:hover .key__main {
+  border-color: #242a49;
+}
+
+.key_arrow-down .key__main {
+  rotate: -90deg;
+}
+
+.key_arrow-right .key__main {
+  rotate: 180deg;
+}
+
+.key_arrow-up .key__main {
+  rotate: 90deg;
+}
+
+.key_backspace {
+  width: 170px;
+}
+
+.key_backspace .key__main::before {
+  content: "";
+  background-image: url("../images/backspace.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px 20px;
+  width: 50px;
+  height: 20px;
+}
+
+.key_caps-lock {
+  width: 110px;
+}
+
+.key_ctrl {
+  width: 80px;
+}
+
+.key_enter {
+  width: 170px;
+}
+
+.key_enter .key__main::before {
+  content: "";
+  background-image: url("../images/enter.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 65px;
+  height: 20px;
+}
+
+.key_shift {
+  width: 140px;
+}
+
+.key_shift .key__main::before {
+  content: "";
+  background-image: url("../images/shift.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 35px;
+  height: 20px;
+}
+
+.key_space {
+  width: 370px;
+}
+
+.key_steelseries .key__main {
+  background-image: url("../images/steelseries.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px 30px;
+}
+
+.key_tab {
+  width: 110px;
+}
+
+.key_tab .key__main::after {
+  content: "";
+  background-image: url("../images/tab.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px 20px;
+  width: 50px;
+  height: 20px;
 }
