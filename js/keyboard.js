@@ -4,6 +4,7 @@ class Keyboard {
     this.ALL_KEYS = null;
     this.textarea = null;
     this.keyboard = null;
+    this.language = 'en';
     this.initKeyboard();
   }
 
@@ -17,6 +18,10 @@ class Keyboard {
       document.addEventListener('keyup', this.keyUp.bind(this));
       document.addEventListener('visibilitychange', this.clearActive.bind(this));
       window.addEventListener('pagehide', this.clearActive.bind(this));
+      if (localStorage.getItem('language') && localStorage.getItem('language') !== this.language) {
+        this.changeLanguage();
+        this.language = localStorage.getItem('language');
+      }
     });
   }
 
@@ -39,6 +44,15 @@ class Keyboard {
     const pressedKey = this.keyboard.querySelector(`button[data-id="${event.code}"]`);
     if (pressedKey) {
       pressedKey.classList.remove('key_active');
+
+      if (
+        (event.code === 'ControlLeft'
+          && this.keyboard.querySelector('.key_active[data-id="AltLeft"]'))
+        || (event.code === 'AltLeft'
+          && this.keyboard.querySelector('.key_active[data-id="ControlLeft"]'))
+      ) {
+        this.changeLanguage();
+      }
     }
   }
 
