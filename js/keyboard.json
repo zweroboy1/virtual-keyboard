@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "code": "Backquote",
     "system": false,
     "lang": {
       "en": {
@@ -19,6 +20,7 @@
   },
   {
     "id": 2,
+    "code": "Digit1",
     "system": false,
     "lang": {
       "en": {
@@ -37,6 +39,7 @@
   },
   {
     "id": 3,
+    "code": "Digit2",
     "system": false,
     "lang": {
       "en": {
@@ -55,6 +58,7 @@
   },
   {
     "id": 4,
+    "code": "Digit3",
     "system": false,
     "lang": {
       "en": {
@@ -73,6 +77,7 @@
   },
   {
     "id": 5,
+    "code": "Digit4",
     "system": false,
     "lang": {
       "en": {
@@ -91,6 +96,7 @@
   },
   {
     "id": 6,
+    "code": "Digit5",
     "system": false,
     "lang": {
       "en": {
@@ -109,6 +115,7 @@
   },
   {
     "id": 7,
+    "code": "Digit6",
     "system": false,
     "lang": {
       "en": {
@@ -127,6 +134,7 @@
   },
   {
     "id": 8,
+    "code": "Digit7",
     "system": false,
     "lang": {
       "en": {
@@ -145,6 +153,7 @@
   },
   {
     "id": 9,
+    "code": "Digit8",
     "system": false,
     "lang": {
       "en": {
@@ -163,6 +172,7 @@
   },
   {
     "id": 10,
+    "code": "Digit9",
     "system": false,
     "lang": {
       "en": {
@@ -181,6 +191,7 @@
   },
   {
     "id": 11,
+    "code": "Digit0",
     "system": false,
     "lang": {
       "en": {
@@ -199,6 +210,7 @@
   },
   {
     "id": 12,
+    "code": "Minus",
     "system": false,
     "lang": {
       "en": {
@@ -217,6 +229,7 @@
   },
   {
     "id": 13,
+    "code": "Equal",
     "system": false,
     "lang": {
       "en": {
@@ -235,6 +248,7 @@
   },
   {
     "id": 14,
+    "code": "Backspace",
     "system": true,
     "value": "Backspace",
     "style": "key_backspace",
@@ -242,6 +256,7 @@
   },
   {
     "id": 15,
+    "code": "Tab",
     "system": true,
     "value": "Tab",
     "style": "key_tab",
@@ -249,6 +264,7 @@
   },
   {
     "id": 16,
+    "code": "KeyQ",
     "system": false,
     "lang": {
       "en": {
@@ -267,6 +283,7 @@
   },
   {
     "id": 17,
+    "code": "KeyW",
     "system": false,
     "lang": {
       "en": {
@@ -285,6 +302,7 @@
   },
   {
     "id": 18,
+    "code": "KeyE",
     "system": false,
     "lang": {
       "en": {
@@ -303,6 +321,7 @@
   },
   {
     "id": 19,
+    "code": "KeyR",
     "system": false,
     "lang": {
       "en": {
@@ -321,6 +340,7 @@
   },
   {
     "id": 20,
+    "code": "KeyT",
     "system": false,
     "lang": {
       "en": {
@@ -339,6 +359,7 @@
   },
   {
     "id": 21,
+    "code": "KeyY",
     "system": false,
     "lang": {
       "en": {
@@ -357,6 +378,7 @@
   },
   {
     "id": 22,
+    "code": "KeyU",
     "system": false,
     "lang": {
       "en": {
@@ -375,6 +397,7 @@
   },
   {
     "id": 23,
+    "code": "KeyI",
     "system": false,
     "lang": {
       "en": {
@@ -393,6 +416,7 @@
   },
   {
     "id": 24,
+    "code": "KeyO",
     "system": false,
     "lang": {
       "en": {
@@ -411,6 +435,7 @@
   },
   {
     "id": 25,
+    "code": "KeyP",
     "system": false,
     "lang": {
       "en": {
@@ -429,6 +454,7 @@
   },
   {
     "id": 26,
+    "code": "BracketLeft",
     "system": false,
     "lang": {
       "en": {
@@ -447,6 +473,7 @@
   },
   {
     "id": 27,
+    "code": "BracketRight",
     "system": false,
     "lang": {
       "en": {
@@ -465,6 +492,7 @@
   },
   {
     "id": 28,
+    "code": "Backslash",
     "system": false,
     "lang": {
       "en": {
@@ -483,6 +511,7 @@
   },
   {
     "id": 29,
+    "code": "Delete",
     "system": true,
     "value": "Del",
     "style": "",
@@ -490,6 +519,7 @@
   },
   {
     "id": 30,
+    "code": "CapsLock",
     "system": true,
     "value": "Caps Lock",
     "style": "key_caps-lock",
@@ -497,6 +527,7 @@
   },
   {
     "id": 31,
+    "code": "KeyA",
     "system": false,
     "lang": {
       "en": {
@@ -515,6 +546,7 @@
   },
   {
     "id": 32,
+    "code": "KeyS",
     "system": false,
     "lang": {
       "en": {
@@ -533,6 +565,7 @@
   },
   {
     "id": 33,
+    "code": "KeyD",
     "system": false,
     "lang": {
       "en": {
@@ -551,6 +584,7 @@
   },
   {
     "id": 34,
+    "code": "KeyF",
     "system": false,
     "lang": {
       "en": {
@@ -569,6 +603,7 @@
   },
   {
     "id": 35,
+    "code": "KeyG",
     "system": false,
     "lang": {
       "en": {
@@ -587,6 +622,7 @@
   },
   {
     "id": 36,
+    "code": "KeyH",
     "system": false,
     "lang": {
       "en": {
@@ -605,6 +641,7 @@
   },
   {
     "id": 37,
+    "code": "KeyJ",
     "system": false,
     "lang": {
       "en": {
@@ -623,6 +660,7 @@
   },
   {
     "id": 38,
+    "code": "KeyK",
     "system": false,
     "lang": {
       "en": {
@@ -641,6 +679,7 @@
   },
   {
     "id": 39,
+    "code": "KeyL",
     "system": false,
     "lang": {
       "en": {
@@ -659,6 +698,7 @@
   },
   {
     "id": 40,
+    "code": "Semicolon",
     "system": false,
     "lang": {
       "en": {
@@ -677,6 +717,7 @@
   },
   {
     "id": 41,
+    "code": "Quote",
     "system": false,
     "lang": {
       "en": {
@@ -695,6 +736,7 @@
   },
   {
     "id": 42,
+    "code": "Enter",
     "system": true,
     "value": "Enter",
     "style": "key_enter",
@@ -702,6 +744,7 @@
   },
   {
     "id": 43,
+    "code": "ShiftLeft",
     "system": true,
     "value": "Shift",
     "style": "key_shift",
@@ -709,6 +752,7 @@
   },
   {
     "id": 44,
+    "code": "KeyZ",
     "system": false,
     "lang": {
       "en": {
@@ -727,6 +771,7 @@
   },
   {
     "id": 45,
+    "code": "KeyX",
     "system": false,
     "lang": {
       "en": {
@@ -745,6 +790,7 @@
   },
   {
     "id": 46,
+    "code": "KeyC",
     "system": false,
     "lang": {
       "en": {
@@ -763,6 +809,7 @@
   },
   {
     "id": 47,
+    "code": "KeyV",
     "system": false,
     "lang": {
       "en": {
@@ -781,6 +828,7 @@
   },
   {
     "id": 48,
+    "code": "KeyB",
     "system": false,
     "lang": {
       "en": {
@@ -799,6 +847,7 @@
   },
   {
     "id": 49,
+    "code": "KeyN",
     "system": false,
     "lang": {
       "en": {
@@ -817,6 +866,7 @@
   },
   {
     "id": 50,
+    "code": "KeyM",
     "system": false,
     "lang": {
       "en": {
@@ -835,6 +885,7 @@
   },
   {
     "id": 51,
+    "code": "Comma",
     "system": false,
     "lang": {
       "en": {
@@ -853,6 +904,7 @@
   },
   {
     "id": 52,
+    "code": "Period",
     "system": false,
     "lang": {
       "en": {
@@ -871,6 +923,7 @@
   },
   {
     "id": 53,
+    "code": "Slash",
     "system": false,
     "lang": {
       "en": {
@@ -889,6 +942,7 @@
   },
   {
     "id": 54,
+    "code": "ArrowUp",
     "system": true,
     "value": "",
     "style": "key_arrow key_arrow-up",
@@ -896,6 +950,7 @@
   },
   {
     "id": 55,
+    "code": "ShiftRight",
     "system": true,
     "value": "Shift",
     "style": "key_shift",
@@ -903,6 +958,7 @@
   },
   {
     "id": 56,
+    "code": "ControlLeft",
     "system": true,
     "value": "Ctrl",
     "style": "key_ctrl",
@@ -910,6 +966,7 @@
   },
   {
     "id": 57,
+    "code": "Special",
     "system": true,
     "value": "",
     "style": "key_steelseries",
@@ -917,6 +974,7 @@
   },
   {
     "id": 58,
+    "code": "AltLeft",
     "system": true,
     "value": "Alt",
     "style": "key_alt",
@@ -924,6 +982,7 @@
   },
   {
     "id": 59,
+    "code": "Space",
     "system": true,
     "value": "",
     "style": "key_space",
@@ -931,6 +990,7 @@
   },
   {
     "id": 60,
+    "code": "AltRight",
     "system": true,
     "value": "Alt",
     "style": "key_alt",
@@ -938,6 +998,7 @@
   },
   {
     "id": 61,
+    "code": "ArrowLeft",
     "system": true,
     "value": "",
     "style": "key_arrow key_arrow-left",
@@ -945,6 +1006,7 @@
   },
   {
     "id": 62,
+    "code": "ArrowDown",
     "system": true,
     "value": "",
     "style": "key_arrow key_arrow-down",
@@ -952,6 +1014,7 @@
   },
   {
     "id": 63,
+    "code": "ArrowRight",
     "system": true,
     "value": "",
     "style": "key_arrow key_arrow-right",
@@ -959,6 +1022,7 @@
   },
   {
     "id": 64,
+    "code": "ControlRight",
     "system": true,
     "value": "Ctrl",
     "style": "key_ctrl",

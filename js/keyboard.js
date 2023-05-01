@@ -4,13 +4,42 @@ class Keyboard {
     this.ALL_KEYS = null;
     this.textarea = null;
     this.keyboard = null;
+    this.initKeyboard();
+  }
+
+  initKeyboard() {
     this.loadKeys().then(() => {
       this.renderKeyboard();
+      document
+        .getElementById('languagebutton')
+        .addEventListener('click', this.changeLanguage.bind(this));
+      document.addEventListener('keydown', this.keyDown.bind(this));
+      document.addEventListener('keyup', this.keyUp.bind(this));
+      document.addEventListener('visibilitychange', this.clearActive.bind(this));
+      window.addEventListener('pagehide', this.clearActive.bind(this));
     });
   }
 
-  bindTextarea(textarea) {
-    this.textarea = textarea;
+  clearActive() {
+    Array.from(document.querySelectorAll('.key_active')).map((element) => element.classList.remove('key_active'));
+  }
+
+  keyDown(event) {
+    event.preventDefault();
+    this.textarea.focus();
+    console.log(event.code, 'down');
+    const pressedKey = this.keyboard.querySelector(`button[data-id="${event.code}"]`);
+    if (pressedKey) {
+      pressedKey.classList.add('key_active');
+    }
+  }
+
+  keyUp(event) {
+    console.log(event.code, 'up');
+    const pressedKey = this.keyboard.querySelector(`button[data-id="${event.code}"]`);
+    if (pressedKey) {
+      pressedKey.classList.remove('key_active');
+    }
   }
 
   async loadKeys() {
@@ -31,7 +60,11 @@ class Keyboard {
 
     this.ALL_KEYS.forEach((key) => {
       const button = document.createElement('button');
-      button.className = key.style === '' ? 'key' : `key ${key.style}`;
+      button.classList.add('key');
+      if (key.style) {
+        key.style.split(' ').map((style) => button.classList.add(style));
+      }
+      button.dataset.id = key.code;
 
       const mainSpan = document.createElement('span');
       mainSpan.classList.add('key__main');
@@ -78,9 +111,14 @@ class Keyboard {
 
     const description = document.createElement('footer');
     description.className = 'description';
-    description.innerHTML = 'Works in Ubuntu. Press left <strong>Shift</strong> + <strong>Alt</strong> on your real keyboard or click <button>here</button> to change language.<br>Current language is English.';
+    description.innerHTML = 'Works in Ubuntu. Press left <strong>Ctrl</strong> + <strong>Alt</strong> on your real keyboard or click <button id="languagebutton">here</button> to change language.<br>Current language is <span class="language_en">English</span><span class="language_ru">Russian</span>.';
 
     this.parentElement.prepend(textarea, keyboard, description);
+  }
+
+  changeLanguage() {
+    this.keyboard.classList.toggle('keyboard_ru');
+    localStorage.setItem('language', this.keyboard.classList.contains('keyboard_ru') ? 'ru' : 'en');
   }
 }
 

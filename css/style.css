@@ -80,6 +80,13 @@ body {
   visibility: hidden;
 }
 
+/* hide english language if keyboard is russian 
+hide russian language if keyboard is english */
+.keyboard_ru+.description .language_en,
+main:not(.keyboard_ru)+.description .language_ru {
+  display: none;
+}
+
 .key {
   position: relative;
   width: 50px;
@@ -109,16 +116,20 @@ body {
   background: linear-gradient(45deg, #f0075b, #0e1538, #1aff22);
 }
 
+.key_active .key__main,
 .key:active .key__main,
+.keyboard_shift .key_active .key__little,
 .keyboard_shift .key:active .key__little {
   background-color: #333333;
   color: #ffffff;
 }
 
+.key_active:before,
 .key:hover:before {
   inset: -1px;
 }
 
+.key_active:after,
 .key:hover:after {
   inset: -1px;
   filter: blur(15px);
@@ -173,6 +184,7 @@ body {
   border-color: rgba(26, 255, 34, 0.3);
 }
 
+.key_active:hover .key__main,
 .key_arrow:hover .key__main {
   border-color: #242a49;
 }
