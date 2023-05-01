@@ -7,10 +7,9 @@ class Keyboard {
     this.textarea = null;
     this.keyboard = null;
     this.language = 'en';
-    this.initKeyboard();
   }
 
-  initKeyboard() {
+  show() {
     this.loadKeys().then(() => {
       this.renderKeyboard();
       document
@@ -29,13 +28,12 @@ class Keyboard {
   }
 
   clearActive() {
-    Array.from(document.querySelectorAll('.key_active')).map((element) => element.classList.remove('key_active'));
+    Array.from(this.keyboard.querySelectorAll('.key_active')).map((element) => element.classList.remove('key_active'));
   }
 
   keyDown(event) {
     event.preventDefault();
     this.textarea.focus();
-    // console.log(event.code, 'down');
     if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
       this.keyboard.classList.add('keyboard_shift');
     }
@@ -47,7 +45,6 @@ class Keyboard {
   }
 
   keyUp(event) {
-    // console.log(event.code, 'up');
     if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
       this.keyboard.classList.remove('keyboard_shift');
     }
@@ -168,9 +165,6 @@ class Keyboard {
       ArrowRight: '→',
     };
     const { value: textareaText, selectionStart } = this.textarea;
-    const activeKeys = Array.from(document.querySelectorAll('.key_active')).map(
-      (element) => element.dataset.id,
-    );
     if (this.NORMAL_KEYS.includes(code)) {
       const findKey = this.ALL_KEYS.filter((el) => el.code === code);
       const value = this.keyboard.classList.contains('keyboard_shift')
@@ -195,81 +189,6 @@ class Keyboard {
     } else if (Object.keys(keyMap).includes(code)) {
       this.addChar(keyMap[code], textareaText, selectionStart);
     }
-
-    /*
-    const { value: textareaText, selectionStart } = this.textarea;
-    const char = this.current.char;
-    const code = this.current.code;
-    const event = this.current.event;
-    const isCtrlKey = event.ctrlKey;
-    const isAltKey = event.altKey;
-    const isCapsLockPressed = this.state.isCapsLockPressed;
-    const isShiftLeftPressed = this.state.isShiftLeftPressed;
-    const isShiftRightPressed = this.state.isShiftRightPressed;
-
-    const handleSpecialKey = () => {
-      if (code === "Backspace") {
-        if (selectionStart > 0 && selectionStart <= text.length) {
-          this.textarea.value = text.slice(0, selectionStart - 1) + text.slice(selectionStart, text.length);
-          this.textarea.selectionStart = selectionStart - 1;
-          this.textarea.selectionEnd = selectionStart - 1;
-        }
-      } else if (code === "Delete") {
-        if (selectionStart >= 0 && selectionStart <= text.length - 1) {
-          this.textarea.value = text.slice(0, selectionStart) + text.slice(selectionStart + 1, text.length);
-          this.textarea.selectionStart = selectionStart;
-          this.textarea.selectionEnd = selectionStart;
-        }
-      } else if (code === "Tab") {
-        this.current.char = "    ";
-        insertChar();
-      } else if (code === "Enter") {
-        this.current.char = "\n";
-        insertChar();
-      } else if (code === "CapsLock") {
-        if (isCapsLockPressed && !event.repeat) {
-          this.removeActiveState();
-          this.state.isCapsLockPressed = false;
-        } else {
-          this.addActiveState();
-          this.state.isCapsLockPressed = true;
-        }
-        this.toggleCase();
-      } else if (code === "ShiftLeft") {
-        if (!isShiftLeftPressed && !isShiftRightPressed) {
-          this.addActiveState();
-          this.state.isShiftLeftPressed = true;
-          this.toggleCase();
-        }
-      } else if (code === "ShiftRight") {
-        if (!isShiftRightPressed && !isShiftLeftPressed) {
-          this.addActiveState();
-          this.state.isShiftRightPressed = true;
-          this.toggleCase();
-        }
-      }
-    };
-
-    const insertChar = () => {
-      if (selectionStart >= 0 && selectionStart <= text.length) {
-        this.textarea.value = text.slice(0, selectionStart) + char + text.slice(selectionStart, text.length);
-        this.textarea.selectionStart = selectionStart + char.length;
-        this.textarea.selectionEnd = selectionStart + char.length;
-      } else {
-        this.textarea.value += char;
-      }
-    };
-
-    const handleRegularKey = () => {
-      insertChar();
-    };
-
-    if (c.SPECIALS.includes(code)) {
-      handleSpecialKey();
-    } else {
-      handleRegularKey();
-    }
-  */
   }
 }
 
