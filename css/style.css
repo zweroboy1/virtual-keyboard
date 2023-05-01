@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+}
+
+.textarea {
+  width: 976px;
+  height: 300px;
+  padding: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.3em;
+  letter-spacing: 0.1em;
+  color: #add8e6;
+  background-color: #333333;
+  border: 1px solid #242a49;
+  outline: 0;
+}
+
+.description {
+  line-height: 2em;
+  color: #dddddd;
+  text-align: center;
+}
+
+.description strong,
+.description button {
+  padding: 3px 12px;
+  border: #242a49 1px solid;
+}
+
+
+.description button {
+  background-color: transparent;
+  color: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  border: 3px double #242a49;
+  user-select: none;
+}
+
+.keyboard__line {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.keyboard .key_ru {
+  visibility: hidden;
+}
+
+.keyboard_ru .key_ru {
+  visibility: visible;
+}
+
+.keyboard_ru .key_en {
+  visibility: hidden;
+}
+
+/* hide english language if keyboard is russian 
+hide russian language if keyboard is english */
+.keyboard_ru+.description .language_en,
+main:not(.keyboard_ru)+.description .language_ru {
+  display: none;
+}
+
+.key {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background: #ffffff;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.key:before,
+.key:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transition: 0.2s;
+}
+
+.key:nth-child(2n+1):before,
+.key:nth-child(2n+1):after {
+  background: linear-gradient(45deg, #00ccff, #0e1538, #d400d4)
+}
+
+.key:nth-child(2n):before,
+.key:nth-child(2n):after {
+  background: linear-gradient(45deg, #f0075b, #0e1538, #1aff22);
+}
+
+.key_active .key__main,
+.key:active .key__main,
+.keyboard_shift .key_active .key__little,
+.keyboard_shift .key:active .key__little {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.key_active:before,
+.key:hover:before {
+  inset: -1px;
+}
+
+.key_active:after,
+.key:hover:after {
+  inset: -1px;
+  filter: blur(15px);
+}
+
+.key__main,
+.keyboard_shift .key__little {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #dddddd;
+  border: 1px solid #242a49;
+  z-index: 2;
+}
+
+.key__little,
+.keyboard_shift .key__main:not(.key_system) {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: initial;
+  height: initial;
+  display: initial;
+  background: initial;
+  z-index: 5;
+  display: initial;
+  justify-content: initial;
+  align-items: initial;
+  font-size: 12px;
+  color: #aaaaaa;
+  border: 0;
+}
+
+
+/* custom keys */
+
+.key_alt {
+  width: 70px;
+}
+
+.key_arrow .key__main {
+  background-image: url("../images/arrow-left.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-color: rgba(26, 255, 34, 0.3);
+}
+
+.key_active:hover .key__main,
+.key_arrow:hover .key__main {
+  border-color: #242a49;
+}
+
+.key_arrow-down .key__main {
+  rotate: -90deg;
+}
+
+.key_arrow-right .key__main {
+  rotate: 180deg;
+}
+
+.key_arrow-up .key__main {
+  rotate: 90deg;
+}
+
+.key_backspace {
+  width: 170px;
+}
+
+.key_backspace .key__main::before {
+  content: "";
+  background-image: url("../images/backspace.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px 20px;
+  width: 50px;
+  height: 20px;
+}
+
+.key_caps-lock {
+  width: 110px;
+}
+
+.key_ctrl {
+  width: 80px;
+}
+
+.key_enter {
+  width: 170px;
+}
+
+.key_enter .key__main::before {
+  content: "";
+  background-image: url("../images/enter.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 65px;
+  height: 20px;
+}
+
+.key_shift {
+  width: 140px;
+}
+
+.key_shift .key__main::before {
+  content: "";
+  background-image: url("../images/shift.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 35px;
+  height: 20px;
+}
+
+.key_space {
+  width: 370px;
+}
+
+.key_steelseries .key__main {
+  background-image: url("../images/steelseries.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px 30px;
+}
+
+.key_tab {
+  width: 110px;
+}
+
+.key_tab .key__main::after {
+  content: "";
+  background-image: url("../images/tab.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px 20px;
+  width: 50px;
+  height: 20px;
+}
