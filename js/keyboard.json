@@ -7,6 +7,11 @@
         "mainValue": "`",
         "secondValue": "~",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "ё",
+        "secondValue": "Ё",
+        "letter": true
       }
     },
     "style": "",
@@ -17,6 +22,11 @@
     "system": false,
     "lang": {
       "en": {
+        "mainValue": "1",
+        "secondValue": "!",
+        "letter": false
+      },
+      "ru": {
         "mainValue": "1",
         "secondValue": "!",
         "letter": false
@@ -33,6 +43,11 @@
         "mainValue": "2",
         "secondValue": "@",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "2",
+        "secondValue": "\"",
+        "letter": false
       }
     },
     "style": "",
@@ -45,6 +60,11 @@
       "en": {
         "mainValue": "3",
         "secondValue": "#",
+        "letter": false
+      },
+      "ru": {
+        "mainValue": "3",
+        "secondValue": "№",
         "letter": false
       }
     },
@@ -59,6 +79,11 @@
         "mainValue": "4",
         "secondValue": "$",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "4",
+        "secondValue": ";",
+        "letter": false
       }
     },
     "style": "",
@@ -69,6 +94,11 @@
     "system": false,
     "lang": {
       "en": {
+        "mainValue": "5",
+        "secondValue": "%",
+        "letter": false
+      },
+      "ru": {
         "mainValue": "5",
         "secondValue": "%",
         "letter": false
@@ -85,6 +115,11 @@
         "mainValue": "6",
         "secondValue": "^",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "6",
+        "secondValue": ":",
+        "letter": false
       }
     },
     "style": "",
@@ -98,6 +133,11 @@
         "mainValue": "7",
         "secondValue": "&",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "7",
+        "secondValue": "?",
+        "letter": false
       }
     },
     "style": "",
@@ -108,6 +148,11 @@
     "system": false,
     "lang": {
       "en": {
+        "mainValue": "8",
+        "secondValue": "*",
+        "letter": false
+      },
+      "ru": {
         "mainValue": "8",
         "secondValue": "*",
         "letter": false
@@ -124,6 +169,11 @@
         "mainValue": "9",
         "secondValue": "(",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "9",
+        "secondValue": "(",
+        "letter": false
       }
     },
     "style": "",
@@ -134,6 +184,11 @@
     "system": false,
     "lang": {
       "en": {
+        "mainValue": "0",
+        "secondValue": ")",
+        "letter": false
+      },
+      "ru": {
         "mainValue": "0",
         "secondValue": ")",
         "letter": false
@@ -150,6 +205,11 @@
         "mainValue": "-",
         "secondValue": "_",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "-",
+        "secondValue": "_",
+        "letter": false
       }
     },
     "style": "",
@@ -160,6 +220,11 @@
     "system": false,
     "lang": {
       "en": {
+        "mainValue": "=",
+        "secondValue": "+",
+        "letter": false
+      },
+      "ru": {
         "mainValue": "=",
         "secondValue": "+",
         "letter": false
@@ -190,6 +255,11 @@
         "mainValue": "q",
         "secondValue": "Q",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "й",
+        "secondValue": "Й",
+        "letter": true
       }
     },
     "style": "",
@@ -202,6 +272,11 @@
       "en": {
         "mainValue": "w",
         "secondValue": "W",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "ц",
+        "secondValue": "Ц",
         "letter": true
       }
     },
@@ -216,6 +291,11 @@
         "mainValue": "e",
         "secondValue": "E",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "у",
+        "secondValue": "У",
+        "letter": true
       }
     },
     "style": "",
@@ -228,6 +308,11 @@
       "en": {
         "mainValue": "r",
         "secondValue": "R",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "к",
+        "secondValue": "К",
         "letter": true
       }
     },
@@ -242,6 +327,11 @@
         "mainValue": "t",
         "secondValue": "T",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "е",
+        "secondValue": "Е",
+        "letter": true
       }
     },
     "style": "",
@@ -254,6 +344,11 @@
       "en": {
         "mainValue": "y",
         "secondValue": "Y",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "н",
+        "secondValue": "Н",
         "letter": true
       }
     },
@@ -268,6 +363,11 @@
         "mainValue": "u",
         "secondValue": "U",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "г",
+        "secondValue": "Г",
+        "letter": true
       }
     },
     "style": "",
@@ -280,6 +380,11 @@
       "en": {
         "mainValue": "i",
         "secondValue": "I",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "ш",
+        "secondValue": "Ш",
         "letter": true
       }
     },
@@ -294,6 +399,11 @@
         "mainValue": "o",
         "secondValue": "O",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "щ",
+        "secondValue": "Щ",
+        "letter": true
       }
     },
     "style": "",
@@ -306,6 +416,11 @@
       "en": {
         "mainValue": "p",
         "secondValue": "P",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "з",
+        "secondValue": "З",
         "letter": true
       }
     },
@@ -320,6 +435,11 @@
         "mainValue": "[",
         "secondValue": "{",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "х",
+        "secondValue": "Х",
+        "letter": true
       }
     },
     "style": "",
@@ -333,6 +453,11 @@
         "mainValue": "]",
         "secondValue": "{",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "ъ",
+        "secondValue": "Ъ",
+        "letter": true
       }
     },
     "style": "",
@@ -345,6 +470,11 @@
       "en": {
         "mainValue": "\\",
         "secondValue": "|",
+        "letter": false
+      },
+      "ru": {
+        "mainValue": "\\",
+        "secondValue": "/",
         "letter": false
       }
     },
@@ -373,6 +503,11 @@
         "mainValue": "a",
         "secondValue": "A",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "ф",
+        "secondValue": "Ф",
+        "letter": true
       }
     },
     "style": "",
@@ -385,6 +520,11 @@
       "en": {
         "mainValue": "s",
         "secondValue": "S",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "ы",
+        "secondValue": "Ы",
         "letter": true
       }
     },
@@ -399,6 +539,11 @@
         "mainValue": "d",
         "secondValue": "D",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "в",
+        "secondValue": "В",
+        "letter": true
       }
     },
     "style": "",
@@ -411,6 +556,11 @@
       "en": {
         "mainValue": "f",
         "secondValue": "F",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "а",
+        "secondValue": "А",
         "letter": true
       }
     },
@@ -425,6 +575,11 @@
         "mainValue": "g",
         "secondValue": "G",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "п",
+        "secondValue": "П",
+        "letter": true
       }
     },
     "style": "",
@@ -437,6 +592,11 @@
       "en": {
         "mainValue": "h",
         "secondValue": "H",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "р",
+        "secondValue": "Р",
         "letter": true
       }
     },
@@ -451,6 +611,11 @@
         "mainValue": "j",
         "secondValue": "J",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "о",
+        "secondValue": "О",
+        "letter": true
       }
     },
     "style": "",
@@ -463,6 +628,11 @@
       "en": {
         "mainValue": "k",
         "secondValue": "K",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "л",
+        "secondValue": "Л",
         "letter": true
       }
     },
@@ -477,6 +647,11 @@
         "mainValue": "l",
         "secondValue": "L",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "д",
+        "secondValue": "Д",
+        "letter": true
       }
     },
     "style": "",
@@ -490,6 +665,11 @@
         "mainValue": ";",
         "secondValue": ":",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "ж",
+        "secondValue": "Ж",
+        "letter": true
       }
     },
     "style": "",
@@ -503,6 +683,11 @@
         "mainValue": "'",
         "secondValue": "\"",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "э",
+        "secondValue": "Э",
+        "letter": true
       }
     },
     "style": "",
@@ -530,6 +715,11 @@
         "mainValue": "z",
         "secondValue": "Z",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "я",
+        "secondValue": "Я",
+        "letter": true
       }
     },
     "style": "",
@@ -542,6 +732,11 @@
       "en": {
         "mainValue": "x",
         "secondValue": "X",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "ч",
+        "secondValue": "Ч",
         "letter": true
       }
     },
@@ -556,6 +751,11 @@
         "mainValue": "c",
         "secondValue": "C",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "с",
+        "secondValue": "С",
+        "letter": true
       }
     },
     "style": "",
@@ -568,6 +768,11 @@
       "en": {
         "mainValue": "v",
         "secondValue": "V",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "м",
+        "secondValue": "М",
         "letter": true
       }
     },
@@ -582,6 +787,11 @@
         "mainValue": "b",
         "secondValue": "B",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "и",
+        "secondValue": "И",
+        "letter": true
       }
     },
     "style": "",
@@ -594,6 +804,11 @@
       "en": {
         "mainValue": "n",
         "secondValue": "N",
+        "letter": true
+      },
+      "ru": {
+        "mainValue": "т",
+        "secondValue": "Т",
         "letter": true
       }
     },
@@ -608,6 +823,11 @@
         "mainValue": "m",
         "secondValue": "M",
         "letter": true
+      },
+      "ru": {
+        "mainValue": "ь",
+        "secondValue": "Ь",
+        "letter": true
       }
     },
     "style": "",
@@ -621,6 +841,11 @@
         "mainValue": ",",
         "secondValue": "<",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "б",
+        "secondValue": "Б",
+        "letter": true
       }
     },
     "style": "",
@@ -634,6 +859,11 @@
         "mainValue": ".",
         "secondValue": ">",
         "letter": false
+      },
+      "ru": {
+        "mainValue": "ю",
+        "secondValue": "Ю",
+        "letter": true
       }
     },
     "style": "",
@@ -646,6 +876,11 @@
       "en": {
         "mainValue": "/",
         "secondValue": "?",
+        "letter": false
+      },
+      "ru": {
+        "mainValue": ".",
+        "secondValue": ",",
         "letter": false
       }
     },

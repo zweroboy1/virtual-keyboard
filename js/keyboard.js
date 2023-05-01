@@ -20,19 +20,19 @@ class Keyboard {
     const keyboard = document.createElement('main');
     const lines = [];
     let currentLine = [];
-    keyboard.className = 'keyboard keyboard_shift';
+    keyboard.className = 'keyboard'; // keyboard_shift';
 
     this.ALL_KEYS.forEach((key) => {
       const button = document.createElement('button');
       button.className = key.style === '' ? 'key' : `key ${key.style}`;
       const mainSpan = document.createElement('span');
       mainSpan.className = 'key__main';
-      mainSpan.textContent = key.system ? key.value : key.lang.en.mainValue;
+      mainSpan.textContent = key.system ? key.value : key.lang.ru.mainValue;
       button.append(mainSpan);
       if (!key.system) {
         const secondSpan = document.createElement('span');
         secondSpan.className = 'key__little';
-        secondSpan.textContent = key.lang.en.secondValue;
+        secondSpan.textContent = key.lang.ru.secondValue;
         button.append(secondSpan);
       } else {
         mainSpan.classList.add('key__system');
