@@ -1,3 +1,4 @@
 import { Keyboard } from './keyboard.js';
 
-const keyboard = new Keyboard(document.body);
+const rootElement = document.body;
+const keyboard = new Keyboard(rootElement);

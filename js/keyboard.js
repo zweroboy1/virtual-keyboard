@@ -2,9 +2,15 @@ class Keyboard {
   constructor(parentElement) {
     this.parentElement = parentElement;
     this.ALL_KEYS = null;
+    this.textarea = null;
+    this.keyboard = null;
     this.loadKeys().then(() => {
       this.renderKeyboard();
     });
+  }
+
+  bindTextarea(textarea) {
+    this.textarea = textarea;
   }
 
   async loadKeys() {
@@ -12,15 +18,16 @@ class Keyboard {
       const response = await fetch('js/keyboard.json');
       this.ALL_KEYS = await response.json();
     } catch (error) {
-      console.error(error);
+      throw new Error('Problems with JSON loading');
     }
   }
 
   renderKeyboard() {
     const keyboard = document.createElement('main');
+    this.keyboard = keyboard;
     const lines = [];
     let currentLine = [];
-    keyboard.className = 'keyboard keyboard_shift keyboard_ru';
+    keyboard.className = 'keyboard';
 
     this.ALL_KEYS.forEach((key) => {
       const button = document.createElement('button');
@@ -29,6 +36,7 @@ class Keyboard {
       const mainSpan = document.createElement('span');
       mainSpan.classList.add('key__main');
       button.append(mainSpan);
+
       if (key.system) {
         mainSpan.classList.add('key_system');
         mainSpan.textContent = key.value;
@@ -64,7 +72,15 @@ class Keyboard {
       line.append(...buttons);
       keyboard.append(line);
     });
-    this.parentElement.prepend(keyboard);
+    const textarea = document.createElement('textarea');
+    textarea.className = 'textarea';
+    this.textarea = textarea;
+
+    const description = document.createElement('footer');
+    description.className = 'description';
+    description.innerHTML = 'Works in Ubuntu. Press left <strong>Shift</strong> + <strong>Alt</strong> on your real keyboard or click <button>here</button> to change language.<br>Current language is English.';
+
+    this.parentElement.prepend(textarea, keyboard, description);
   }
 }
 
