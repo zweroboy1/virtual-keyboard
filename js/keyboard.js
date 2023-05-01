@@ -2,6 +2,8 @@ class Keyboard {
   constructor(parentElement) {
     this.parentElement = parentElement;
     this.ALL_KEYS = null;
+    this.SYSTEM_KEYS = null;
+    this.NORMAL_KEYS = null;
     this.textarea = null;
     this.keyboard = null;
     this.language = 'en';
@@ -20,8 +22,9 @@ class Keyboard {
       window.addEventListener('pagehide', this.clearActive.bind(this));
       if (localStorage.getItem('language') && localStorage.getItem('language') !== this.language) {
         this.changeLanguage();
-        this.language = localStorage.getItem('language');
       }
+      this.SYSTEM_KEYS = this.ALL_KEYS.filter((el) => el.system).map((el) => el.code);
+      this.NORMAL_KEYS = this.ALL_KEYS.filter((el) => !el.system).map((el) => el.code);
     });
   }
 
@@ -32,19 +35,25 @@ class Keyboard {
   keyDown(event) {
     event.preventDefault();
     this.textarea.focus();
-    console.log(event.code, 'down');
+    // console.log(event.code, 'down');
+    if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+      this.keyboard.classList.add('keyboard_shift');
+    }
     const pressedKey = this.keyboard.querySelector(`button[data-id="${event.code}"]`);
     if (pressedKey) {
       pressedKey.classList.add('key_active');
     }
+    this.printToTextArea(event.code);
   }
 
   keyUp(event) {
-    console.log(event.code, 'up');
+    // console.log(event.code, 'up');
+    if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+      this.keyboard.classList.remove('keyboard_shift');
+    }
     const pressedKey = this.keyboard.querySelector(`button[data-id="${event.code}"]`);
     if (pressedKey) {
       pressedKey.classList.remove('key_active');
-
       if (
         (event.code === 'ControlLeft'
           && this.keyboard.querySelector('.key_active[data-id="AltLeft"]'))
@@ -133,6 +142,107 @@ class Keyboard {
   changeLanguage() {
     this.keyboard.classList.toggle('keyboard_ru');
     localStorage.setItem('language', this.keyboard.classList.contains('keyboard_ru') ? 'ru' : 'en');
+    this.language = this.keyboard.classList.contains('keyboard_ru') ? 'ru' : 'en';
+  }
+
+  printToTextArea(code) {
+    const { value: textareaText, selectionStart } = this.textarea;
+    const activeKeys = Array.from(document.querySelectorAll('.key_active')).map(
+      (element) => element.dataset.id,
+    );
+
+    // console.log(findKey, char);
+    if (this.NORMAL_KEYS.includes(code)) {
+      const findKey = this.ALL_KEYS.filter((el) => el.code === code);
+      console.log(this.language);
+      const value = this.keyboard.classList.contains('keyboard_shift')
+        ? 'secondValue'
+        : 'mainValue';
+      const char = findKey[0].lang[this.language][value];
+      if (selectionStart >= 0 && selectionStart <= textareaText.length) {
+        this.textarea.value = textareaText.slice(0, selectionStart)
+          + char
+          + textareaText.slice(selectionStart, textareaText.length);
+        this.textarea.selectionStart = selectionStart + char.length;
+        this.textarea.selectionEnd = selectionStart + char.length;
+      } else {
+        this.textarea.value += char;
+      }
+    }
+    /*
+    const { value: textareaText, selectionStart } = this.textarea;
+    const char = this.current.char;
+    const code = this.current.code;
+    const event = this.current.event;
+    const isCtrlKey = event.ctrlKey;
+    const isAltKey = event.altKey;
+    const isCapsLockPressed = this.state.isCapsLockPressed;
+    const isShiftLeftPressed = this.state.isShiftLeftPressed;
+    const isShiftRightPressed = this.state.isShiftRightPressed;
+
+    const handleSpecialKey = () => {
+      if (code === "Backspace") {
+        if (selectionStart > 0 && selectionStart <= text.length) {
+          this.textarea.value = text.slice(0, selectionStart - 1) + text.slice(selectionStart, text.length);
+          this.textarea.selectionStart = selectionStart - 1;
+          this.textarea.selectionEnd = selectionStart - 1;
+        }
+      } else if (code === "Delete") {
+        if (selectionStart >= 0 && selectionStart <= text.length - 1) {
+          this.textarea.value = text.slice(0, selectionStart) + text.slice(selectionStart + 1, text.length);
+          this.textarea.selectionStart = selectionStart;
+          this.textarea.selectionEnd = selectionStart;
+        }
+      } else if (code === "Tab") {
+        this.current.char = "    ";
+        insertChar();
+      } else if (code === "Enter") {
+        this.current.char = "\n";
+        insertChar();
+      } else if (code === "CapsLock") {
+        if (isCapsLockPressed && !event.repeat) {
+          this.removeActiveState();
+          this.state.isCapsLockPressed = false;
+        } else {
+          this.addActiveState();
+          this.state.isCapsLockPressed = true;
+        }
+        this.toggleCase();
+      } else if (code === "ShiftLeft") {
+        if (!isShiftLeftPressed && !isShiftRightPressed) {
+          this.addActiveState();
+          this.state.isShiftLeftPressed = true;
+          this.toggleCase();
+        }
+      } else if (code === "ShiftRight") {
+        if (!isShiftRightPressed && !isShiftLeftPressed) {
+          this.addActiveState();
+          this.state.isShiftRightPressed = true;
+          this.toggleCase();
+        }
+      }
+    };
+
+    const insertChar = () => {
+      if (selectionStart >= 0 && selectionStart <= text.length) {
+        this.textarea.value = text.slice(0, selectionStart) + char + text.slice(selectionStart, text.length);
+        this.textarea.selectionStart = selectionStart + char.length;
+        this.textarea.selectionEnd = selectionStart + char.length;
+      } else {
+        this.textarea.value += char;
+      }
+    };
+
+    const handleRegularKey = () => {
+      insertChar();
+    };
+
+    if (c.SPECIALS.includes(code)) {
+      handleSpecialKey();
+    } else {
+      handleRegularKey();
+    }
+  */
   }
 }
 
