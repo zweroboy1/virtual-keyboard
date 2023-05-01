@@ -22,12 +22,25 @@ body {
   gap: 10px;
   padding: 10px;
   border: 3px double #242a49;
+  user-select: none;
 }
 
 .keyboard__line {
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+
+.keyboard .key_ru {
+  visibility: hidden;
+}
+
+.keyboard_ru .key_ru {
+  visibility: visible;
+}
+
+.keyboard_ru .key_en {
+  visibility: hidden;
 }
 
 .key {
@@ -92,7 +105,7 @@ body {
 }
 
 .key__little,
-.keyboard_shift .key__main:not(.key__system) {
+.keyboard_shift .key__main:not(.key_system) {
   position: absolute;
   top: 3px;
   left: 4px;
