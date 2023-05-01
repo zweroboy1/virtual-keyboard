@@ -145,30 +145,57 @@ class Keyboard {
     this.language = this.keyboard.classList.contains('keyboard_ru') ? 'ru' : 'en';
   }
 
+  addChar(char, textareaText, selectionStart) {
+    if (selectionStart >= 0 && selectionStart <= textareaText.length) {
+      this.textarea.value = textareaText.slice(0, selectionStart)
+        + char
+        + textareaText.slice(selectionStart, textareaText.length);
+      this.textarea.selectionStart = selectionStart + char.length;
+      this.textarea.selectionEnd = selectionStart + char.length;
+    } else {
+      this.textarea.value += char;
+    }
+  }
+
   printToTextArea(code) {
+    const keyMap = {
+      Tab: '\t',
+      Enter: '\n',
+      Space: ' ',
+      ArrowUp: '↑',
+      ArrowDown: '↓',
+      ArrowLeft: '←',
+      ArrowRight: '→',
+    };
     const { value: textareaText, selectionStart } = this.textarea;
     const activeKeys = Array.from(document.querySelectorAll('.key_active')).map(
       (element) => element.dataset.id,
     );
-
-    // console.log(findKey, char);
     if (this.NORMAL_KEYS.includes(code)) {
       const findKey = this.ALL_KEYS.filter((el) => el.code === code);
-      console.log(this.language);
       const value = this.keyboard.classList.contains('keyboard_shift')
         ? 'secondValue'
         : 'mainValue';
       const char = findKey[0].lang[this.language][value];
-      if (selectionStart >= 0 && selectionStart <= textareaText.length) {
-        this.textarea.value = textareaText.slice(0, selectionStart)
-          + char
+      this.addChar(char, textareaText, selectionStart);
+    } else if (code === 'Backspace') {
+      if (selectionStart > 0 && selectionStart <= textareaText.length) {
+        this.textarea.value = textareaText.slice(0, selectionStart - 1)
           + textareaText.slice(selectionStart, textareaText.length);
-        this.textarea.selectionStart = selectionStart + char.length;
-        this.textarea.selectionEnd = selectionStart + char.length;
-      } else {
-        this.textarea.value += char;
+        this.textarea.selectionStart = selectionStart - 1;
+        this.textarea.selectionEnd = selectionStart - 1;
       }
+    } else if (code === 'Delete') {
+      if (selectionStart >= 0 && selectionStart <= textareaText.length - 1) {
+        this.textarea.value = textareaText.slice(0, selectionStart)
+          + textareaText.slice(selectionStart + 1, textareaText.length);
+        this.textarea.selectionStart = selectionStart;
+        this.textarea.selectionEnd = selectionStart;
+      }
+    } else if (Object.keys(keyMap).includes(code)) {
+      this.addChar(keyMap[code], textareaText, selectionStart);
     }
+
     /*
     const { value: textareaText, selectionStart } = this.textarea;
     const char = this.current.char;
