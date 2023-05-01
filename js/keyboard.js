@@ -17,6 +17,8 @@ class Keyboard {
         .addEventListener('click', this.changeLanguage.bind(this));
       document.addEventListener('keydown', this.keyDown.bind(this));
       document.addEventListener('keyup', this.keyUp.bind(this));
+      this.keyboard.addEventListener('mousedown', this.mouseDown.bind(this));
+      this.keyboard.addEventListener('mouseup', this.mouseUp.bind(this));
       document.addEventListener('visibilitychange', this.clearActive.bind(this));
       window.addEventListener('pagehide', this.clearActive.bind(this));
       if (localStorage.getItem('language') && localStorage.getItem('language') !== this.language) {
@@ -188,6 +190,37 @@ class Keyboard {
       }
     } else if (Object.keys(keyMap).includes(code)) {
       this.addChar(keyMap[code], textareaText, selectionStart);
+    }
+  }
+
+  mouseDown(event) {
+    event.preventDefault();
+    if (event.target.tagName !== 'SPAN') {
+      return;
+    }
+    const button = event.target.closest('button');
+    if (!button) {
+      return;
+    }
+    const code = button.dataset.id;
+    if (code === 'ShiftLeft' || code === 'ShiftRight') {
+      this.keyboard.classList.add('keyboard_shift');
+    }
+    this.printToTextArea(code);
+  }
+
+  mouseUp(event) {
+    event.preventDefault();
+    if (event.target.tagName !== 'SPAN') {
+      return;
+    }
+    const button = event.target.closest('button');
+    if (!button) {
+      return;
+    }
+    const code = button.dataset.id;
+    if (code === 'ShiftLeft' || code === 'ShiftRight') {
+      this.keyboard.classList.remove('keyboard_shift');
     }
   }
 }
