@@ -39,6 +39,9 @@ class Keyboard {
     if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
       this.keyboard.classList.add('keyboard_shift');
     }
+    if (event.code === 'CapsLock') {
+      this.keyboard.classList.toggle('keyboard_capslock');
+    }
     const pressedKey = this.keyboard.querySelector(`button[data-id="${event.code}"]`);
     if (pressedKey) {
       pressedKey.classList.add('key_active');
@@ -98,18 +101,33 @@ class Keyboard {
       } else {
         mainSpan.classList.add('key_en');
         mainSpan.textContent = key.lang.en.mainValue;
+        if (key.lang.en.letter) {
+          mainSpan.classList.add('key__main_letter');
+        }
 
         const secondSpan = document.createElement('span');
-        secondSpan.className = 'key__little key_en';
+        secondSpan.classList.add('key__little');
+        secondSpan.classList.add('key_en');
         secondSpan.textContent = key.lang.en.secondValue;
+        if (key.lang.en.letter) {
+          secondSpan.classList.add('key__little_letter');
+        }
 
         const mainSpanRu = document.createElement('span');
-        mainSpanRu.className = 'key__main key_ru';
+        mainSpanRu.classList.add('key__main');
+        mainSpanRu.classList.add('key_ru');
         mainSpanRu.textContent = key.lang.ru.mainValue;
+        if (key.lang.ru.letter) {
+          mainSpanRu.classList.add('key__main_letter');
+        }
 
         const secondSpanRu = document.createElement('span');
-        secondSpanRu.className = 'key__little key_ru';
+        secondSpanRu.classList.add('key__little');
+        secondSpanRu.classList.add('key_ru');
         secondSpanRu.textContent = key.lang.ru.secondValue;
+        if (key.lang.ru.letter) {
+          secondSpanRu.classList.add('key__little_letter');
+        }
 
         button.append(secondSpan, mainSpanRu, secondSpanRu);
       }
@@ -169,10 +187,35 @@ class Keyboard {
     const { value: textareaText, selectionStart } = this.textarea;
     if (this.NORMAL_KEYS.includes(code)) {
       const findKey = this.ALL_KEYS.filter((el) => el.code === code);
-      const value = this.keyboard.classList.contains('keyboard_shift')
-        ? 'secondValue'
-        : 'mainValue';
-      const char = findKey[0].lang[this.language][value];
+      const isShift = this.keyboard.classList.contains('keyboard_shift');
+      const isCapsLock = this.keyboard.classList.contains('keyboard_capslock');
+      const isLetter = findKey[0].lang[this.language].letter;
+      let result;
+      if (isShift === true && isCapsLock === true && isLetter === true) {
+        result = true;
+      }
+      if (isShift === true && isCapsLock === true && isLetter === false) {
+        result = false;
+      }
+      if (isShift === true && isCapsLock === false && isLetter === true) {
+        result = false;
+      }
+      if (isShift === true && isCapsLock === false && isLetter === false) {
+        result = false;
+      }
+      if (isShift === false && isCapsLock === true && isLetter === true) {
+        result = false;
+      }
+      if (isShift === false && isCapsLock === true && isLetter === false) {
+        result = true;
+      }
+      if (isShift === false && isCapsLock === false && isLetter === true) {
+        result = true;
+      }
+      if (isShift === false && isCapsLock === false && isLetter === false) {
+        result = true;
+      }
+      const char = findKey[0].lang[this.language][result ? 'mainValue' : 'secondValue'];
       this.addChar(char, textareaText, selectionStart);
     } else if (code === 'Backspace') {
       if (selectionStart > 0 && selectionStart <= textareaText.length) {
@@ -205,6 +248,9 @@ class Keyboard {
     const code = button.dataset.id;
     if (code === 'ShiftLeft' || code === 'ShiftRight') {
       this.keyboard.classList.add('keyboard_shift');
+    }
+    if (code === 'CapsLock') {
+      this.keyboard.classList.toggle('keyboard_capslock');
     }
     this.printToTextArea(code);
   }
