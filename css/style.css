@@ -68,6 +68,9 @@ body {
   gap: 10px;
 }
 
+/* hide english letters if keyboard is russian 
+hide russian letters if keyboard is english */
+
 .keyboard .key_ru {
   visibility: hidden;
 }
@@ -119,16 +122,21 @@ main:not(.keyboard_ru)+.description .language_ru {
 .key_active .key__main,
 .key:active .key__main,
 .keyboard_shift .key_active .key__little,
-.keyboard_shift .key:active .key__little {
+.keyboard_capslock:not(.keyboard_shift) .key_active .key__little_letter,
+.keyboard_shift .key:active .key__little,
+.keyboard_capslock:not(.keyboard_shift) .key:active .key__little_letter,
+.keyboard_capslock .key_caps-lock .key__main {
   background-color: #333333;
   color: #ffffff;
 }
 
+.keyboard_capslock .key_caps-lock:before,
 .key_active:before,
 .key:hover:before {
   inset: -1px;
 }
 
+.keyboard_capslock .key_caps-lock:after,
 .key_active:after,
 .key:hover:after {
   inset: -1px;
@@ -136,6 +144,7 @@ main:not(.keyboard_ru)+.description .language_ru {
 }
 
 .key__main,
+.keyboard_capslock:not(.keyboard_shift) .key__little_letter,
 .keyboard_shift .key__little {
   position: absolute;
   top: 0;
@@ -153,7 +162,9 @@ main:not(.keyboard_ru)+.description .language_ru {
 }
 
 .key__little,
-.keyboard_shift .key__main:not(.key_system) {
+.keyboard_capslock:not(.keyboard_shift) .key__main_letter:not(.key_system),
+.keyboard_shift .key__main:not(.key_system),
+.keyboard_shift.keyboard_capslock .key__main:not(.key_system) {
   position: absolute;
   top: 3px;
   left: 4px;
@@ -170,6 +181,13 @@ main:not(.keyboard_ru)+.description .language_ru {
   border: 0;
 }
 
+.keyboard_shift.keyboard_capslock .key__main_letter {
+  text-transform: uppercase !important;
+}
+
+.keyboard_shift.keyboard_capslock .key__little_letter {
+  text-transform: lowercase !important;
+}
 
 /* custom keys */
 
